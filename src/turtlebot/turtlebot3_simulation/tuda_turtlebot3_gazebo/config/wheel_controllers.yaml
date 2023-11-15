@@ -1,0 +1,9 @@
+wheel_left_controller:
+  type: effort_controllers/JointVelocityController
+  joint: wheel_left_joint
+  pid: &joint_pid {p: 1.0, d: 0.0, i: 0.0, i_clamp: 1.0}
+
+wheel_right_controller:
+  type: effort_controllers/JointVelocityController
+  joint: wheel_right_joint
+  pid: *joint_pid

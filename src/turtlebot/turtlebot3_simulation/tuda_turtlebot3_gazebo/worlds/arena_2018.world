@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<sdf version="1.4">
+  <world name="TurtleBot Arena 2018">
+    <!-- set ambient light -->
+    <scene>
+      <ambient>0.8 0.8 0.8 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+    <physics type="ode">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1</real_time_factor>
+            <real_time_update_rate>1000</real_time_update_rate>
+            <gravity>0 0 -9.8</gravity>
+    </physics>
+    <!-- global light source -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- load arena -->
+    <include>
+      <uri>model://arena_2018</uri>
+    </include>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>2.45366 -2.16253 3.02298 0 0.795643 2.34819</pose>
+	      <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>

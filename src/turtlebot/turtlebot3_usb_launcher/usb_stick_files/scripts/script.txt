@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# uncomment if you want to use turtle commands
+#shopt -s expand_aliases
+#. /home/$(whoami)/turtle/setup.bash
+
+# add your scripts, etc

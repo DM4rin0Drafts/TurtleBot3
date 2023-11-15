@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="multi_robot" default="False" />
+  <arg name="robot_name" default="turtlebot3" />
+  <arg name="with_base" default="True" />
+  <arg name="with_arm" default="$(optenv TURTLEBOT3_WITH_ARM False)" />
+  <arg name="arm_controller_type" default="$(optenv TURTLEBOT3_ARM_CONTROLLER_TYPE position)" />
+  <arg name="gripper_controller_type" default="$(optenv TURTLEBOT3_GRIPPER_CONTROLLER_TYPE position)" />
+  <arg name="start_onboard" default="False" />
+
+  <arg name="ground_truth" default="True" />
+  <arg name="use_diff_drive" default="False" />
+  <arg name="paused" default="True" />
+  <arg name="gazebo_gui" default="True" />
+
+  <!-- start sim -->
+  <include file="$(find tuda_turtlebot3_gazebo)/launch/turtlebot3.launch" pass_all_args="true">
+    <arg name="world_name" value="$(find tuda_turtlebot3_gazebo)/worlds/arena_2018.world" />
+
+    <arg name="x_pos" value="0.0"/>
+    <arg name="y_pos" value="-1.0"/>
+    <arg name="z_pos" value="0.02"/>
+    <arg name="roll"  value="0.0"/>
+    <arg name="pitch" value="0.0"/>
+    <arg name="yaw"   value="-1.570796327"/>
+  </include>
+
+  <group ns="$(arg robot_name)">
+   <node name="ball_spawner_1" pkg="tuda_turtlebot3_gazebo" type="spawn_tennis_ball_rand_loc.py" output="screen" args="1 0 0 -0.6 -0.6 0.04 0.04" />
+  </group>
+  
+</launch>

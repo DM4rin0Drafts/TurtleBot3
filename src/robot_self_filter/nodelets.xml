@@ -1,0 +1,11 @@
+<library path="lib/librobot_self_filter">
+
+  <class name="robot_self_filter/robot_self_filter_nodelet"
+	 type="robot_self_filter::RobotSelfFilterNodelet"
+	 base_class_type="nodelet::Nodelet">
+    <description>
+      Nodelet to generate  sensor_msgs/PointCloud2 to sensor_msgs/LaserScans.
+    </description>
+  </class>
+
+</library>

@@ -1,0 +1,42 @@
+
+
+
+<package>
+  <name>robot_self_filter</name>
+  <version>0.0.1</version>
+  <description>The robot self filter is a package that allows you to filter out robot body parts from sensor information using the known positions and orientations of these parts. </description>
+  <maintainer email="ioan@osrfoundation.org">Ioan Sucan</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>filters</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>geometric_shapes</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>resource_retriever</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>shape_msgs</build_depend>
+  <build_depend>nodelet</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>tf_conversions</run_depend>
+  <run_depend>filters</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>geometric_shapes</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>resource_retriever</run_depend>
+  <run_depend>pcl_conversions</run_depend>
+  <run_depend>shape_msgs</run_depend>
+  <run_depend>nodelet</run_depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+
+</package>

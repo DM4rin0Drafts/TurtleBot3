@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="robot_name" default="tuda_turtlebot3_arm" />
+  <arg name="parent_link" default="base_link" />
+
+  <param name="use_gui" value="True" />
+
+  <include file="$(find tuda_turtlebot3_arm_description)/launch/load_tuda_turtlebot3_arm_robot_description.launch">
+    <arg name="robot_name" value="$(arg robot_name)" />
+    <arg name="parent_link" value="$(arg parent_link)" />
+  </include>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tuda_turtlebot3_arm_description)/rviz/xacrodisplay.rviz" />
+</launch>

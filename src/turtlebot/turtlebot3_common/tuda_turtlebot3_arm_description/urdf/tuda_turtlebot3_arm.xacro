@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<robot name="$(arg robot_name)" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find tuda_turtlebot3_arm_description)/urdf/tuda_turtlebot3_arm.urdf.xacro" />
+
+  <xacro:arg name="parent_link" default="base_link" />
+
+  <link name="$(arg parent_link)" />
+
+  <xacro:manipulator_arm_macro parent="$(arg parent_link)">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </xacro:manipulator_arm_macro>
+</robot>

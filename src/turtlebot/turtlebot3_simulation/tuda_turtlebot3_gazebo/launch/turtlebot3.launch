@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="multi_robot" default="False" />
+  <arg name="robot_name" default="turtlebot3" />
+  <arg name="with_base" default="True" />
+  <arg name="with_arm" default="$(optenv TURTLEBOT3_WITH_ARM False)" />
+  <arg name="arm_controller_type" default="$(optenv TURTLEBOT3_ARM_CONTROLLER_TYPE position)" />
+  <arg name="gripper_controller_type" default="$(optenv TURTLEBOT3_GRIPPER_CONTROLLER_TYPE position)" />
+  <arg name="start_onboard" default="False" />
+
+  <arg name="world_name" default="$(find tuda_turtlebot3_gazebo)/worlds/empty.world" />
+  <arg name="ground_truth" default="True" />
+  <arg name="use_diff_drive" default="False" />
+  <arg name="paused" default="True" />
+  <arg name="gazebo_gui" default="True" />
+
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.01"/>
+  <arg name="roll"  default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw"   default="0.0"/>
+
+  <!-- start Gazebo -->
+  <include file="$(find tuda_turtlebot3_gazebo)/launch/gazebo.launch" pass_all_args="true" />
+
+  <!-- start robot basics -->
+  <group ns="$(arg robot_name)">
+    <include file="$(find turtlebot3_onboard_launch)/launch/robot_basics.launch">
+      <arg name="multi_robot" value="$(arg multi_robot)" />
+      <arg name="robot_name" value="$(arg robot_name)" />
+      <arg name="with_base" value="$(arg with_base)" />
+      <arg name="with_arm" value="$(arg with_arm)" />
+      <arg name="arm_controller_type" value="$(arg arm_controller_type)" />
+      <arg name="gripper_controller_type" value="$(arg gripper_controller_type)" />
+      <arg name="gazebo" value="True" />
+      <arg name="ground_truth" value="$(arg ground_truth)" />
+      <arg name="use_diff_drive" value="$(arg use_diff_drive)" />
+    </include>
+  </group>
+
+  <!-- start onboard software -->
+  <group if="$(arg with_base)">
+    <include file="$(find turtlebot3_onboard_launch)/launch/start_onboard.launch" if="$(arg start_onboard)">
+      <arg name="robot_name" value="$(arg robot_name)" />
+      <arg name="with_base" value="$(arg with_base)" />
+      <arg name="with_arm" value="$(arg with_arm)" />
+      <arg name="gazebo" value="True" />
+      <arg name="ground_truth" value="$(arg ground_truth)" />
+    </include>
+  </group>
+</launch>

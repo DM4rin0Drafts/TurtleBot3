@@ -1,0 +1,19 @@
+material arena_2018/FloorGrass
+{
+  receive_shadows on
+  technique
+  {
+    pass
+    {
+      ambient 0.5 0.5 0.5 1
+
+      texture_unit
+      {
+        scale 0.1 0.1
+        texture green_grass.jpg
+        filtering anistorpic
+        max_anisotropy 16
+      }
+    }
+  }
+}

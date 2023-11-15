@@ -1,0 +1,6 @@
+string target_frame
+geometry_msgs/PointStamped position                 # if empty (no frame_id given), then robot pose is used
+uint16 number_nearest_balls
+---
+turtlebot3_exercise_msgs/BallState[] ball_states
+---

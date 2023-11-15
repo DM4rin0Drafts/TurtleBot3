@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <arg name="robot_name" default="turtlebot3" />
+  <node pkg="topic_tools" type="relay" name="image_rect_color_relay" args="/$(arg robot_name)/camera/rgb/image_raw /$(arg robot_name)/sensor/camera/image_rect_color" />
+  <node pkg="topic_tools" type="relay" name="camera_info_relay" args="/$(arg robot_name)/camera/rgb/camera_info /$(arg robot_name)/sensor/camera/camera_info" />
+
+</launch>
